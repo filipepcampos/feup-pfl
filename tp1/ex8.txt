@@ -1,0 +1,10 @@
+Ex 1.8
+    a) segundo :: [a] -> a
+    b) trocar :: (a,b) -> (b,a)
+    c) par :: a -> b -> (a, b)
+    d) dobro :: Numeric a => a -> 2 * a
+    e) metade :: Fractional a => a -> a
+    d) minuscula :: Char -> Bool
+    g) intervalo :: Ord a => a -> a -> a > Bool
+    h) palindromo :: Eq a => [a] -> Bool
+    i) twice :: (a -> a) -> a -> a
