@@ -1,37 +1,42 @@
 import Data.Map (Map)
 import qualified Data.Map as Map
 
--- TODO:
--- Zero
--- Números entre 10 e 20
+listaUnidades = ["um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"]
+lista10_19 = ["dez", "onze", "doze", "treze", "catorze", "quinze", "dezasseis", "dezassete", "dezoito", "dezanove"]
+listaDezenas = ["dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"]
+listaCentenas = ["cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"]
 
-list1 = ["um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"]
-list10 = ["dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"]
-list100 = ["cem", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"]
-
-
-converteParcial :: [String] -> Int -> String
-converteParcial l x
-    | x > 0 && x < 10 = l !! (x-1)
+acederLista :: [String] -> Int -> String
+acederLista l x
+    | x > 0 && x < length l + 1 = l !! (x-1)
     | otherwise = ""
 
-c1000 x = if k /= 1 then converte k  ++ " mil " else "mil "
+converteMilhares :: Int -> String
+converteMilhares x 
+    | k /= 1 = converte k ++ " mil "
+    | otherwise = "mil "
     where k = x `div` 1000
-c100 x = converteParcial list100 (x `div` 100)
-c10 x = converteParcial list10 (x `div` 10)
-c1 = converteParcial list1
 
-continuar :: Integral a => a -> a -> Bool
-continuar a b
-    | a `mod` b == 0 = False
-    | otherwise = True
+converteCentenas x = acederLista listaCentenas (x `div` 100)
+converteDezenas x = acederLista listaDezenas (x `div` 10)
+converte10_19 x = acederLista lista10_19 (x - 9)
+converteUnidades = acederLista listaUnidades
 
-foo a b = if continuar a b then " e " ++ converte (a `mod` b) else ""
+continuar :: Int -> Int -> Bool
+continuar a b = a `mod` b /= 0
+
+conectar :: Int -> Int -> String
+conectar a b 
+    | continuar a b = " e " ++ converte (a `mod` b)
+    | otherwise = ""
 
 converte :: Int -> String
 converte x
-    | x <= 1000000 && x >= 1000 = c1000 x  ++ converte (x `mod` 1000)
-    | x >= 100                  = c100 x ++ foo x 100
-    | x >= 10                   = c10 x  ++ foo x 10
-    | x > 0                     = c1 x
+    | x <= 1000000 && x >= 1000 = converteMilhares x ++ converte (x `mod` 1000)
+    | x > 100                   = converteCentenas x ++ conectar x 100
+    | x == 100                  = "cem" -- I know this looks awful
+    | x >= 20                   = converteDezenas x  ++ conectar x 10
+    | x >= 10                   = converte10_19 x
+    | x > 0                     = converteUnidades x
+    | x == 0                    = "zero"
     | otherwise = ""
