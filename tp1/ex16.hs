@@ -8,23 +8,18 @@ acederLista l x
     | x > 0 && x < length l + 1 = l !! (x-1)
     | otherwise = ""
 
-converteMilhares :: Int -> String
 converteMilhares x 
     | k /= 1 = converte k ++ " mil "
     | otherwise = "mil "
     where k = x `div` 1000
-
 converteCentenas x = acederLista listaCentenas (x `div` 100)
 converteDezenas x = acederLista listaDezenas (x `div` 10)
 converte10_19 x = acederLista lista10_19 (x - 9)
 converteUnidades = acederLista listaUnidades
 
-continuar :: Int -> Int -> Bool
-continuar a b = a `mod` b /= 0
-
 conectar :: Int -> Int -> String
 conectar a b 
-    | continuar a b = " e " ++ converte (a `mod` b)
+    | a `mod` b /= 0 = " e " ++ converte (a `mod` b)
     | otherwise = ""
 
 converte :: Int -> String
