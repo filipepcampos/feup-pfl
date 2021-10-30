@@ -1,6 +1,3 @@
-import Data.Map (Map)
-import qualified Data.Map as Map
-
 listaUnidades = ["um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"]
 lista10_19 = ["dez", "onze", "doze", "treze", "catorze", "quinze", "dezasseis", "dezassete", "dezoito", "dezanove"]
 listaDezenas = ["dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"]
