@@ -1,5 +1,5 @@
 parts :: [a] -> [[[a]]]
-parts [] = []
+parts [] = [[]]
 parts (x:xs) = map ([x]:) (parts xs) ++ [(x:y):ys | (y:ys) <- (parts xs)]
 
 
