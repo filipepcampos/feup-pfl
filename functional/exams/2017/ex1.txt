@@ -1,0 +1,29 @@
+a) length ([1,2] : [3] : [5]: [[]]) = 4
+b) head ([]:[3]:[[5,2]]) = []
+c) ((2+).(5*)) 4 = 22
+d) [True,True,True,False,False]
+e) foldl (\x y -> 2*x+y) 0 [1,1,0,1,0] = 
+    1 [1,0,1,0] =
+    3 [0,1,0] =
+    6 [1,0] =
+    13 [0] = 
+    26
+    R: 26
+f) [(x,y) | x <- [1..4], y <- [1..x], x == y+1] = [(2,1),(3,2),(4,3)]
+g) [(1+n*2, 2^(n+1)) | n <- [0..]]
+h)
+    f [x] = [3*x]
+    f (x:xs) = (2*x) : f xs
+
+    f [1,2,1,5,4] = 2 : f [2,1,5,4] = 2 : 4 : f [1,5,4] = 2 : 4 : 2 : f [5,4] = 2 : 4 : 2 : 10 : f [4] = [2,4,2,10,12]
+i) [Int -> Bool]
+j) Integral -> Integral
+k)
+data Arv a = Folha a | No (Arv a) (Arv a)
+
+l)
+f xs ys = sum (zipWith (*) xs ys)
+
+[Integral] -> [Integral] -> Integral
+
+
