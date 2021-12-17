@@ -1,0 +1,22 @@
+b)
+i. yes
+ii. no
+iii. yes
+iv. dede, jay
+v. joe, manny
+vi. haley, alex, luke, lily, rexford
+vii. dede, jay, barb, merle
+viii. no
+ix. claire, mitchell
+
+d)
+'Haley e Lily são primas': `cousins(haley,lily)` -> no
+'Quem é o pai de Luke?': `father(X,luke)` -> phil
+'Quem é o tio de Lily?': `uncle(X,lily)` -> não existe
+'Quem é avô?': `grandfather(X,_).` -> frank, jay, merle, phil
+'Listar todos pares de irmãos': `siblings(X,Y).`
+'Listar todos os pares de meios irmãos': `halfSiblings(X,Y).`
+
+e)
+casados(X,Y)
+divorciados(X,Y)

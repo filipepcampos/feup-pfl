@@ -1,0 +1,9 @@
+b)
+i. `leciona(X,diogenes).`
+ii. `leciona(X,felismina).`
+iii. `frequenta(X,claudio).`
+iv. `frequenta(X,dalmindo).`
+v. `frequenta(X,eduarda), leciona(X,bernardete).`
+vi. `frequenta(X,alberto), frequenta(X,alvaro).`
+
+c)
