@@ -1,0 +1,12 @@
+a) yes
+b) (syntax error)
+c) yes
+d) yes
+e) yes
+f) yes
+g) no
+h) yes
+i) yes
+j) yes
+k) yes
+l) yes ?
