@@ -69,15 +69,21 @@ add_person_aux(female, Name) :-
     assert(female(Name)).
 
 add_person :-
-    write('Write new person in the format male/female-name\n'),
+    write('Write new person in the format male/female-name\n >'),
     read(Gender-Name),
     add_person_aux(Gender, Name).
 
 % b)
 add_parents(Person) :-
-    write('Write the parents in the format parent1-parent2\n'),
+    write('Write the parents in the format parent1-parent2\n >'),
     read(Parent1-Parent2),
     assert(parent(Parent1, Person)),
     assert(parent(Parent2, Person)).
 
 % c)
+remove_person :-
+    write('Person name\n >'),
+    read(Name),
+    retractall(parent(Name, _)),
+    retract((male(Name))),
+    retract((female(Name))).
